@@ -19,12 +19,12 @@ def getvalue():
     set_alarm = f"{hour.get()}:{min.get()}:{sec.get()}"
     alarm(set_alarm)
 def close():
-    exit(0)
+    root.destroy()
 
 root = Tk()
 root.geometry("170x150")
 info = Label(root,text = "(24)Hour  Min   Sec").place(x = 50)
-set_time = Label(root,text = "Set Time",relief = "solid",font=("Cambria",10,"bold")).place(x=0,y=30)
+set_time = Label(root,text = "Set Time",font=("Cambria",10,"bold")).place(x=0,y=30)
 
 # Entry Variables
 hour = StringVar()
@@ -32,10 +32,10 @@ min = StringVar()
 sec = StringVar()
 
 # Entry Widget
-hour_E = Entry(root,textvariable = hour,bg = "grey",width = 4).place(x=60,y=30)
-min_E = Entry(root,textvariable = min,bg = "grey",width = 4).place(x=90,y=30)
-sec_E = Entry(root,textvariable = sec,bg = "grey",width = 4).place(x=120,y=30)
+hour_E = Entry(root,textvariable = hour,width = 4).place(x=60,y=30)
+min_E = Entry(root,textvariable = min,width = 4).place(x=90,y=30)
+sec_E = Entry(root,textvariable = sec,width = 4).place(x=120,y=30)
 
 submit = Button(root,text = "Set Alarm",width = 10,command = getvalue).place(x =50,y=70)
-close = Button(root,width=10, text ="Stop", command = close).place(x=50,y=100)
+close = Button(root,width=10, text ="Close", command = close).place(x=50,y=100)
 root.mainloop()
